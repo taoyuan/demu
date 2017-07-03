@@ -1,0 +1,39 @@
+{
+  "name": "demu",
+  "version": "0.0.0",
+  "description": "A raspian emulator based on docker and qemu",
+  "homepage": "https://github.com/taoyuan/demu",
+  "author": {
+    "name": "Yuan Tao",
+    "email": "towyuan@outlook.com",
+    "url": "https://github.com/taoyuan"
+  },
+  "keywords": [
+    "docker",
+    "qemu",
+    "raspbian",
+    "raspberry",
+    "pi"
+  ],
+  "bin": {
+    "demu": "bin/demu.js"
+  },
+  "scripts": {},
+  "repository": "taoyuan/demu",
+  "license": "MIT",
+  "dependencies": {
+    "arrify": "^1.0.1",
+    "caporal": "^0.7.0",
+    "chalk": "^2.0.1",
+    "child-process-promise": "^2.2.1",
+    "glob": "^7.1.2",
+    "inflection": "^1.12.0",
+    "lodash": "^4.17.4",
+    "shelljs": "github:shelljs/shelljs#feat-cmd-child"
+  },
+  "devDependencies": {
+    "@types/chalk": "^0.4.31",
+    "@types/inflection": "^1.5.28",
+    "@types/shelljs": "^0.7.2"
+  }
+}
