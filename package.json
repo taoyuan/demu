@@ -18,21 +18,34 @@
   "bin": {
     "demu": "bin/demu.js"
   },
-  "scripts": {},
+	"files": [
+		"bin",
+		"docker",
+		"lib"
+	],
+  "scripts": {
+    "clean": "rimraf lib",
+    "build": "npm run clean && echo Using TypeScript && tsc --version && tsc --pretty"
+  },
   "repository": "taoyuan/demu",
   "license": "MIT",
   "dependencies": {
     "arrify": "^1.0.1",
-    "caporal": "^0.7.0",
-    "chalk": "^2.0.1",
+    "caporal": "^0.10.0",
+    "chalk": "^2.4.1",
     "child-process-promise": "^2.2.1",
     "inflection": "^1.12.0",
-    "lodash": "^4.17.4"
+    "lodash": "^4.17.10"
   },
   "devDependencies": {
-    "@types/chalk": "^0.4.31",
+    "@types/chalk": "^2.2.0",
     "@types/inflection": "^1.5.28",
-    "@types/shelljs": "^0.7.2"
-  },
-  "false": {}
+    "@types/shelljs": "^0.8.0",
+    "@types/bleno": "^0.4.0",
+    "@types/chai": "^4.1.3",
+    "@types/mocha": "^5.2.0",
+    "@types/node": "^10.1.4",
+    "rimraf": "^2.6.2",
+    "typescript": "^2.8.4"
+  }
 }
