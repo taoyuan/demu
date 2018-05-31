@@ -1,6 +1,6 @@
 {
   "name": "demu",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "A raspian emulator based on docker and qemu",
   "homepage": "https://github.com/taoyuan/demu",
   "author": {
@@ -18,11 +18,11 @@
   "bin": {
     "demu": "bin/demu.js"
   },
-	"files": [
-		"bin",
-		"docker",
-		"lib"
-	],
+  "files": [
+    "bin",
+    "docker",
+    "lib"
+  ],
   "scripts": {
     "clean": "rimraf lib",
     "build": "npm run clean && echo Using TypeScript && tsc --version && tsc --pretty"
