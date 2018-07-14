@@ -1,5 +1,6 @@
 # demu
-> A raspian emulator based on docker and qemu
+
+> QEMU and helper scripts in a docker container for emulating a raspberry pi environment
 
 ## Installation
 
