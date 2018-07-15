@@ -4,33 +4,18 @@
 
 import * as path from "path";
 import * as fs from "fs";
-import * as _ from "lodash";
 const docker = require('../docker');
 
 const DOCKER_IMAGE = 'taoyuan/demu';
 
-const DEFAULTS = {
-	interactive: true,
-	tty: true,
-	rm: true,
-	privileged: true,
-	workdir: '/usr/rpi'
-};
-
-export interface RunArgs {
-	image: string;
-	[name: string]: any;
-}
-
 export interface RunOptions {
+	image: string;
 	command: string;
 	vmnt: string;
-	[name: string]: any;
 }
 
-export async function run(args: RunArgs, options: RunOptions, logger?) {
-	const {image} = args || <RunArgs>{};
-	const {command, vmnt} = options || <RunOptions>{};
+export async function run(args, options: RunOptions, logger?) {
+	const {command, vmnt, image} = options || <RunOptions>{};
 
 	const cmd: string[] = ['/bin/bash'];
 	const volume: string[] = [];
@@ -50,7 +35,7 @@ export async function run(args: RunArgs, options: RunOptions, logger?) {
 		volume.push(`${path.resolve(vmnt)}:/vmnt`);
 	}
 
-	const argo = _.merge({}, DEFAULTS, {volume});
+	const argo = Object.assign({}, docker.DEFAULTS, {volume});
 
 	const dir = path.resolve(__dirname, '..', '..', 'docker');
 	await docker.ensureImage(DOCKER_IMAGE, dir, {t: DOCKER_IMAGE});

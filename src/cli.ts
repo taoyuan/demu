@@ -2,21 +2,27 @@
  * Created by taoyuan on 2017/6/30.
  */
 
-import * as prog from "caporal";
-import {run} from "./commands";
+import * as program from "caporal";
+import {run, setup} from "./commands";
 
 const pkg = require("../package.json");
 
 export function cli() {
-	prog
-		.version(pkg.version)
-		.command('run', 'Launch the docker image (into an emulated session if image specified)')
-		.argument('[image]', 'The raspbian image or empty to run docker')
+	program
+		.version(pkg.version);
+
+
+	program.command('run', 'Launch the docker image (into an emulated session if image specified)')
+		.option('--image, -i', 'The raspbian image or empty to run docker')
 		.option('--command, -c', 'The command run in raspbian emulator')
 		.option('--vmnt, -v', 'The directory bind to emulator /vmnt')
 		.action(run);
 
-	prog.parse(process.argv);
+	program.command('setup', 'Run setup script in docker emulated session')
+		.option('--image, -i <image>', 'The raspbian image or empty to run docker')
+		.action(setup);
+
+	program.parse(process.argv);
 
 }
 

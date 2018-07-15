@@ -1,5 +1,13 @@
 import {argumentize, spawn} from'./utils';
 
+export const DEFAULTS = {
+	interactive: true,
+	tty: true,
+	rm: true,
+	privileged: true,
+	workdir: '/usr/rpi'
+};
+
 export async function inspect(image) {
 	const data = await spawn('docker', ['inspect', image], {silent: true, capture: true});
 	return JSON.parse(data);
