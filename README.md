@@ -2,6 +2,8 @@
 
 > QEMU and helper scripts in a docker container for emulating a raspberry pi environment
 
+> DEPRECATED. Replaced by simpi
+
 ## Installation
 
 ```sh
